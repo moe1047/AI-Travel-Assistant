@@ -1,5 +1,4 @@
 # AI Travel Assistant Integerated with Amadeus's GDS.
-### Note: This project does not 
 
 This AI Travel Assistant helps travelers with the following:
 1. Find & compare flight deals to find the cheapest and least-duration flight.
