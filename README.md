@@ -82,5 +82,5 @@ We welcome contributions! Please feel free to submit a Pull Request.
 ---
 
 <div align="center">
-Made with ❤️
+Made with ❤️ by agent Mo
 </div>
