@@ -1,0 +1,22 @@
+1. Video Overview
+- Problem Statement
+- What are we going to build
+- Technology we are gonna use
+- Is This for you.
+
+2. Project Overview.
+- CrewAI Overview.
+    - Agents
+    - Tasks
+    - Tools
+- Project Plan
+    - Goal of the Project. => Plan my trip based on duration, budget and interests
+    - Agents & tasks Overview
+        - Travel Agent => Search and Compare flight offers based on departure and return date.
+        - Local Guide => Search & find activities based on the traveler's interest & budget.
+        - Trip planner => Plan activities, Estimate trip budget and Offers travel tips, advice, and recommendations for a smooth and enjoyable trip.
+    - Tools
+        - Flight Search
+        - Activities Search
+
+3. Coding

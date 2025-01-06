@@ -1,0 +1,675 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------TRAVEL AGENT--------
+act as a travel agent, your job is two compare the duration and the price of flight offers json data 
+and select the best one based on the price and duration. meaning select one thats cheap and less duration and return the selected flight offer as a json.
+
+
+instruction 
+search for flights offers and receive flight offers json you found, then
+compare the itineraries and choose one that's least price and duration. 
+your output should be a json object of the flight offer you chose.
+
+
+test instruction
+based on the flight_offers variable,
+compare the itineraries and choose one that's least price and duration. 
+your answer should be only consist of a json object of the flight offer you chose.
+
+flight_offers = [
+  {
+    "id": "1",
+    "type": "flight-offer",
+    "itineraries": [
+      {
+        "duration": "PT18H50M"
+      },
+      {
+        "duration": "PT21H50M"
+      }
+    ],
+    "price": "900.70",
+    "currency": "USD"
+  },
+  {
+    "id": "2",
+    "type": "flight-offer",
+    "itineraries": [
+      {
+        "duration": "PT29H15M"
+      },
+      {
+        "duration": "PT18H5M"
+      }
+    ],
+    "price": "480.70",
+    "currency": "USD"
+  },
+  {
+    "id": "3",
+    "type": "flight-offer",
+    "itineraries": [
+      {
+        "duration": "PT11H15M"
+      },
+      {
+        "duration": "PT17H5M"
+      }
+    ],
+    "price": "463.70",
+    "currency": "USD"
+  }
+  {
+    "id": "4",
+    "type": "flight-offer",
+    "itineraries": [
+      {
+        "duration": "PT11H15M"
+      },
+      {
+        "duration": "PT11H5M"
+      }
+    ],
+    "price": "200.70",
+    "currency": "USD"
+  }
+  
+]
+
+
+--------Local Guide--------
+
+instruction by steps
+1. search for activities and 
+2. recommend a curated list of activities tailored to match the interests of the traveler.
+
+context
+
+
+input data
+Here are what you need to know to recommend activities:
+Travel Interests: {interests}
+
+Here are what you need to know to search for activities
+latitude:{latitude}
+latitude:{longitude}
+
+output indicator 
+
+your answer should consist of list of recommended activities. 
+with each activity containing the following information:
+activity title
+activity description
+activity duration
+short reason of why you chose this activity
+activity price. 
+activity booking link.
+
+if price is not available, search on the internet and estimate price.
+and finally a total estimation of all activities
+
+tools
+1. activities search
+2. calculator
+
+--------TRIP PLANNER--------
+
+instruction by steps
+1. Develop a comprehensive trip guide that includes: 
+- a short concise description information.
+- detailed itinerary
+- detailed flight information
+- detailed trip budget
+- Travel Tips and Advice
+
+context (backstory)
+Expert in travel planning and logistics.
+
+output indicator 
+your answer should be in a table format and should consist of the following:
+1. Destination Information which includes attractions, 
+activities, accommodations, weather, transportation options, 
+cost of living and local customs.
+
+2. A detailed flight information which includes:
+a. flight number
+b. Departure Date and Time.
+c. Departure Airport.
+d. Arrival Airport
+e. Duration
+f. Check-in Time
+g. Baggage Allowance.
+3. Detailed itinerary plan, broken down into daily plans 
+tailored to the traveler's trip duration and incorporating 
+recommended activities and activity duration.
+4. Detailed trip budget which consists of: 
+a. list of the recommended activities and each activity's price.
+b. the chosen flight offer cost.
+c. Total estimation of the trip.
+5. Travel Tips and Advice which includes:
+a. useful tips & advice.
+b. Travel guides to help the traveler make the most of their trip
+and avoid common pitfalls.
+
+input data
+Here are all the data you need to know to plan the trip.
+1. Recommended activities = 
+[
+    {
+        "type": "activity",
+        "id": "581734",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/581734",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Cultural Odyssey: Ancient Ruins Exploration",
+        "description": "Embark on a journey through time as you explore the ancient ruins of our city. Marvel at the architectural wonders and learn about the rich history and cultural significance of each site.",
+        "rating": "4.5",
+        "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "2 hours"
+    },
+    {
+        "type": "activity",
+        "id": "482913",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/482913",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Gastronomic Delight: Street Food Tour",
+        "description": "Indulge in a culinary adventure as you explore the vibrant street food scene of our city. Taste a variety of local delicacies and flavors that reflect our rich cultural heritage.",
+        "rating": "4.2",
+        "price": {
+            "amount": "30.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image4.jpg",
+            "https://example.com/image5.jpg",
+            "https://example.com/image6.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "2 hours 30 minutes"
+    },
+    {
+        "type": "activity",
+        "id": "593827",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/593827",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Skydiving Adventure: Experience the Ultimate Thrill",
+        "description": "Feel the adrenaline rush as you freefall from the sky and experience the breathtaking views of our city from above. Skydiving is an adventure of a lifetime that you'll never forget.",
+        "rating": "4.8",
+        "price": {
+            "amount": "250.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image7.jpg",
+            "https://example.com/image8.jpg",
+            "https://example.com/image9.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "4 hours"
+    },
+    {
+        "type": "activity",
+        "id": "739125",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/739125",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Wildlife Safari: Explore the Natural Beauty",
+        "description": "Embark on a wildlife safari and encounter the diverse flora and fauna of our city's natural habitats. Witness majestic creatures in their natural environment and gain a deeper appreciation for nature.",
+        "rating": "4.6",
+        "price": {
+            "amount": "80.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image10.jpg",
+            "https://example.com/image11.jpg",
+            "https://example.com/image12.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "3 hours"
+    },
+    {
+        "type": "activity",
+        "id": "607238",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/607238",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Zen Retreat: Spa and Wellness",
+        "description": "Escape the hustle and bustle of the city and indulge in a rejuvenating spa retreat. Treat yourself to luxurious spa treatments and experience deep relaxation and tranquility.",
+        "rating": "4.7",
+        "price": {
+            "amount": "120.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image13.jpg",
+            "https://example.com/image14.jpg",
+            "https://example.com/image15.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "4 hours"
+    },
+    {
+        "type": "activity",
+        "id": "835472",
+        "self": {
+            "href": "https://test.api.amadeus.com/v1/shopping/activities/835472",
+            "methods": [
+                "GET"
+            ]
+        },
+        "name": "Culinary Discovery: Cooking Class",
+        "description": "Learn the secrets of local cuisine from expert chefs in a hands-on cooking class. Discover traditional recipes and techniques passed down through generations.",
+        "rating": "4.4",
+        "price": {
+            "amount": "60.0",
+            "currencyCode": "USD"
+        },
+        "pictures": [
+            "https://example.com/image16.jpg",
+            "https://example.com/image17.jpg",
+            "https://example.com/image18.jpg"
+        ],
+        "bookingLink": "https://example.com/booking-link",
+        "minimumDuration": "3 hours"
+    }]
+2. Chosen flight offer information= 
+{
+			"type": "flight-offer",
+			"id": "1",
+			"source": "GDS",
+			"instantTicketingRequired": false,
+			"nonHomogeneous": false,
+			"oneWay": false,
+			"lastTicketingDate": "2024-04-25",
+			"lastTicketingDateTime": "2024-04-25",
+			"numberOfBookableSeats": 9,
+			"itineraries": [
+				{
+					"duration": "PT26H50M",
+					"segments": [
+						{
+							"departure": {
+								"iataCode": "SYD",
+								"terminal": "1",
+								"at": "2024-04-25T11:25:00"
+							},
+							"arrival": {
+								"iataCode": "XMN",
+								"terminal": "3",
+								"at": "2024-04-25T18:50:00"
+							},
+							"carrierCode": "MF",
+							"number": "802",
+							"aircraft": {
+								"code": "789"
+							},
+							"operating": {
+								"carrierCode": "MF"
+							},
+							"duration": "PT9H25M",
+							"id": "3",
+							"numberOfStops": 0,
+							"blacklistedInEU": false
+						},
+						{
+							"departure": {
+								"iataCode": "XMN",
+								"terminal": "3",
+								"at": "2024-04-26T08:40:00"
+							},
+							"arrival": {
+								"iataCode": "BKK",
+								"at": "2024-04-26T11:15:00"
+							},
+							"carrierCode": "MF",
+							"number": "853",
+							"aircraft": {
+								"code": "738"
+							},
+							"operating": {
+								"carrierCode": "MF"
+							},
+							"duration": "PT3H35M",
+							"id": "4",
+							"numberOfStops": 0,
+							"blacklistedInEU": false
+						}
+					]
+				},
+				{
+					"duration": "PT18H5M",
+					"segments": [
+						{
+							"departure": {
+								"iataCode": "BKK",
+								"at": "2024-04-30T12:15:00"
+							},
+							"arrival": {
+								"iataCode": "XMN",
+								"terminal": "3",
+								"at": "2024-04-30T16:30:00"
+							},
+							"carrierCode": "MF",
+							"number": "854",
+							"aircraft": {
+								"code": "738"
+							},
+							"operating": {
+								"carrierCode": "MF"
+							},
+							"duration": "PT3H15M",
+							"id": "5",
+							"numberOfStops": 0,
+							"blacklistedInEU": false
+						},
+						{
+							"departure": {
+								"iataCode": "XMN",
+								"terminal": "3",
+								"at": "2024-04-30T22:00:00"
+							},
+							"arrival": {
+								"iataCode": "SYD",
+								"terminal": "1",
+								"at": "2024-05-01T09:20:00"
+							},
+							"carrierCode": "MF",
+							"number": "801",
+							"aircraft": {
+								"code": "789"
+							},
+							"operating": {
+								"carrierCode": "MF"
+							},
+							"duration": "PT9H20M",
+							"id": "6",
+							"numberOfStops": 0,
+							"blacklistedInEU": false
+						}
+					]
+				}
+			],
+			"price": {
+				"currency": "USD",
+				"total": "463.70",
+				"base": "165.00",
+				"fees": [
+					{
+						"amount": "0.00",
+						"type": "SUPPLIER"
+					},
+					{
+						"amount": "0.00",
+						"type": "TICKETING"
+					}
+				],
+				"grandTotal": "463.70"
+			},
+			"pricingOptions": {
+				"fareType": [
+					"PUBLISHED"
+				],
+				"includedCheckedBagsOnly": true
+			},
+			"validatingAirlineCodes": [
+				"MF"
+			],
+			"travelerPricings": [
+				{
+					"travelerId": "1",
+					"fareOption": "STANDARD",
+					"travelerType": "ADULT",
+					"price": {
+						"currency": "USD",
+						"total": "463.70",
+						"base": "165.00"
+					},
+					"fareDetailsBySegment": [
+						{
+							"segmentId": "3",
+							"cabin": "ECONOMY",
+							"fareBasis": "S3M6AAUS",
+							"brandedFare": "YSTANDARD",
+							"brandedFareLabel": "ECONOMY STANDARD",
+							"class": "S",
+							"includedCheckedBags": {
+								"quantity": 1
+							},
+							"amenities": [
+								{
+									"description": "CHECKED BAG 1PC OF 23KG 158CM",
+									"isChargeable": false,
+									"amenityType": "BAGGAGE",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "REFUNDABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "CHANGEABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								}
+							]
+						},
+						{
+							"segmentId": "4",
+							"cabin": "ECONOMY",
+							"fareBasis": "S3M6AAUS",
+							"brandedFare": "YSTANDARD",
+							"brandedFareLabel": "ECONOMY STANDARD",
+							"class": "S",
+							"includedCheckedBags": {
+								"quantity": 1
+							},
+							"amenities": [
+								{
+									"description": "CHECKED BAG 1PC OF 23KG 158CM",
+									"isChargeable": false,
+									"amenityType": "BAGGAGE",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "REFUNDABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "CHANGEABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								}
+							]
+						},
+						{
+							"segmentId": "5",
+							"cabin": "ECONOMY",
+							"fareBasis": "S3M6AAUS",
+							"brandedFare": "YSTANDARD",
+							"brandedFareLabel": "ECONOMY STANDARD",
+							"class": "S",
+							"includedCheckedBags": {
+								"quantity": 1
+							},
+							"amenities": [
+								{
+									"description": "CHECKED BAG 1PC OF 23KG 158CM",
+									"isChargeable": false,
+									"amenityType": "BAGGAGE",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "REFUNDABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "CHANGEABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								}
+							]
+						},
+						{
+							"segmentId": "6",
+							"cabin": "ECONOMY",
+							"fareBasis": "S3M6AAUS",
+							"brandedFare": "YSTANDARD",
+							"brandedFareLabel": "ECONOMY STANDARD",
+							"class": "S",
+							"includedCheckedBags": {
+								"quantity": 1
+							},
+							"amenities": [
+								{
+									"description": "CHECKED BAG 1PC OF 23KG 158CM",
+									"isChargeable": false,
+									"amenityType": "BAGGAGE",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "REFUNDABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								},
+								{
+									"description": "CHANGEABLE  TICKET",
+									"isChargeable": true,
+									"amenityType": "BRANDED_FARES",
+									"amenityProvider": {
+										"name": "BrandedFare"
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+3. Destination City = London
+4. Duration = 8 days
+
+tools
+1. internet search
+2. calculator
+
+
+Act as an expert city local guide,
+generate 10 random activity json objects using the format provided below.
+use these instructions to generate:
+1. come up with a unique random number with the same length as the id in the format for each activity.
+2. come up activity name (title of the activity) and description (activity description) thats related to (Cultural Exploration, eating,adventure, nature and wildlife, relaxation and wellness, culinary Exploration, Urban exploration, Photography and Artistic Pursuits, and Adventure Sports).
+3. As for the price, come up with a random price and the currency will always be USD.
+4. for the duration, booking link and other fields, come up with a random rational values.
+
+your output should only consists of the generated activity json objects.
+format = 
+		{
+			"type": "activity",
+			"id": "6379109",
+			"self": {
+				"href": "https://test.api.amadeus.com/v1/shopping/activities/6379109",
+				"methods": [
+					"GET"
+				]
+			},
+			"name": "From Italy with love: Tasting menú paired with italian wines.",
+			"description": "Join the latest culinary trend of immersive and social dining where local hosts invite you into their homes for a magical meal.<br><br>During this dinner, you'll feel the heart of Italy in every bite. \n\nWe don't want you arrive to our place and just sit down in a table, we want you feel as a home and enjoy how we live the dinner moment in Italy, tasting Italian wines, welcoming you with an Italian aperitivo and to have a nice conversation in an elegant but relaxed atmosphere, with a selection of Italian recipes with a little tweak but keeping their Italian essence.\n\n\n",
+            "rating": "4.2",
+			"price": {
+				"amount": "72.0",
+				"currencyCode": "USD"
+			},
+			"pictures": [
+				"https://screen-api.vizeater.co/files/1460946/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460944/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460947/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1454023/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1454025/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1454021/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1454024/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460941/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460948/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460940/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460945/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460942/-/preview/-/progressive/yes/-/format/jpeg/image.jpg",
+				"https://screen-api.vizeater.co/files/1460943/-/preview/-/progressive/yes/-/format/jpeg/image.jpg"
+			],
+			"bookingLink": "https://vizeater.co/events/54143?utm_source=amadeus-1381",
+			"minimumDuration": "3 hours"
+		},
