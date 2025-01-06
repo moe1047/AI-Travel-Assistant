@@ -66,15 +66,10 @@ The system generates detailed travel plans including:
   - Practical travel hacks
   - Safety recommendations
 
-## 🚀 Getting Started
-
-[Add installation and setup instructions here]
-
 ## 🛠️ Technologies Used
 
 - CrewAI Framework
-- Amadeus GDS Integration
-- [Add other key technologies]
+- Amadeus GDS API
 
 ## 📄 License
 
@@ -84,12 +79,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 We welcome contributions! Please feel free to submit a Pull Request.
 
-## 📞 Support
-
-[Add support contact information or links]
-
 ---
 
 <div align="center">
-Made with ❤️ by [Your Name/Organization]
+Made with ❤️
 </div>
